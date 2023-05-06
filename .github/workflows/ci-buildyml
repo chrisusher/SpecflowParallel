@@ -27,8 +27,7 @@ jobs:
       with:
         dotnet-version: 6.0.x
         
-    - name: Build Solution
-      uses: Elskom/build-dotnet@v1.1.1
-      with:
-        SOLUTION_FILE_PATH: $env:Solution_Name
-        PACK: false
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
