@@ -10,8 +10,11 @@ public class AssemblyLifecycle
     [OneTimeSetUp]
     public void AssemblySetup()
     {
+        DotNetEnv.Env.TraversePath().Load();
+        
         StaticData.Configuration = new ConfigurationBuilder()
             .AddJsonFile(Path.Combine(Environment.CurrentDirectory, "appsettings.json"))
+            .AddEnvironmentVariables()
             .Build();
 
         StaticData.TestConfig = StaticData.Configuration.Get<TestConfig>();
