@@ -24,10 +24,11 @@ public class HomeController : ControllerBase
         await HomePage.SignInButton.ClickAsync();
 
         await Page.TypeAsync(_signinPage.UsernameTextbox.Locator, username);
-        await Page.TypeAsync(_signinPage.PasswordTextbox.Locator, password);
+        await Page.ClickAsync(_signinPage.SignInButton.Locator);        
 
         // await Task.WhenAll(usernameTask, passwordTask);
-
-        await Page.ClickAsync(_signinPage.SignInButton.Locator);
+        
+        await Page.TypeAsync(_signinPage.PasswordTextbox.Locator, password);
+        await Page.ClickAsync(_signinPage.SignInButton.Locator);  
     }
 }
