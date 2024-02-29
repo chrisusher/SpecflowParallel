@@ -48,7 +48,7 @@ public class BBCSteps : StepsBase
     [Then("I am logged in")]
     public async Task ThenIAmLoggedIn()
     {
-        Assert.IsTrue(await Page.GetByText("Welcome to the BBC").IsVisibleAsync(), "Welcome to the BBC was not visible.");
+        Assert.That(await Page.GetByText("Welcome to the BBC").IsVisibleAsync(), Is.True, "Welcome to the BBC was not visible.");
     }
 
     #endregion
