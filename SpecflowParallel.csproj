@@ -1,39 +1,43 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-    </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
 
-    <ItemGroup>
-        <Using Include="TechTalk.SpecFlow" />
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DistributedLock.FileSystem" Version="1.0.1" />
+    <PackageReference Include="DotNetEnv" Version="3.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+    <PackageReference Include="Microsoft.Playwright" Version="1.33.0" />
 
-    <ItemGroup>
-        <PackageReference Include="DistributedLock.FileSystem" Version="1.0.1" />
-        <PackageReference Include="DotNetEnv" Version="3.0.0" />
-        <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.1" />
-        <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="8.0.0" />
-        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
-        <PackageReference Include="Microsoft.Playwright" Version="1.33.0" />
-        
-        <!-- Not yet available -->
-        <!-- <PackageReference Include="Reqnroll.Plus.LivingDocPlugin" Version="1.0.1" /> -->
-        
-        <PackageReference Include="Reqnroll.NUnit" Version="1.0.1" />
-        <PackageReference Include="nunit" Version="4.1.0" />
-        <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
-        <PackageReference Include="Reqnroll.Tools.MsBuild.Generation" Version="1.0.1" />
-        <PackageReference Include="TestingSupport.Common" Version="0.6.0" />
-        <PackageReference Include="TestingSupport.PlaywrightHelpers" Version="0.4.0" />
+    <!-- Not yet available -->
+    <!-- <PackageReference Include="Reqnroll.Plus.LivingDocPlugin" Version="1.0.1" /> -->
 
-    </ItemGroup>
+    <PackageReference Include="Reqnroll.NUnit" Version="1.0.1" />
+    <PackageReference Include="nunit" Version="4.1.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
+    <PackageReference Include="Reqnroll.Tools.MsBuild.Generation" Version="1.0.1" />
+    <PackageReference Include="TestingSupport.Common" Version="0.6.0" />
+    <PackageReference Include="TestingSupport.PlaywrightHelpers" Version="0.4.0" />
 
-    <ItemGroup>
-      <None Update="appsettings.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
-    </ItemGroup>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="reqnroll.json" />
+    <None Remove="appsettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="reqnroll.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 
 </Project>
